@@ -1,23 +1,23 @@
-// import CategoryFilter from '@/components/shared/CategoryFilter'
-// import Collection from '@/components/shared/Collection'
-// import Search from '@/components/shared/Search'
+import CategoryFilter from '@/components/shared/CategoryFilter'
+import Collection from '@/components/shared/Collection'
+import Search from '@/components/shared/Search'
 import { Button } from '@/components/ui/button'
-// import { getAllListings } from '@/lib/actions/listing.actions'
+import { getAllListings } from '@/lib/actions/house.actions'
 import { SearchParamProps } from '@/types'
 import Image from 'next/image'
 import Link from 'next/link'
 
 export default async function Home({searchParams}: SearchParamProps) {
-//   const page = Number(searchParams?.page) || 1;
-//   const searchText = (searchParams?.query as string) || '';
-//   const category  = (searchParams?.category as string) || '';
+  const page = Number(searchParams?.page) || 1;
+  const searchText = (searchParams?.query as string) || '';
+  const category  = (searchParams?.category as string) || '';
 
-//   const listings = await getAllListings({
-//     query: searchText,
-//     category,
-//     page,
-//     limit: 6
-//   })
+  const listings = await getAllListings({
+    query: searchText,
+    category,
+    page,
+    limit: 6
+  })
   return (
     <>
      <section className='bg-primary-50 bg-dotted-pattern bg-contain py-5 md:py-10'>
@@ -33,7 +33,7 @@ export default async function Home({searchParams}: SearchParamProps) {
       </div>
      </section> 
 
-     {/* <section id='events' className='wrapper my-8 flex flex-col gap-8 md:gap-12 ' >
+     <section id='events' className='wrapper my-8 flex flex-col gap-8 md:gap-12 ' >
       <h2 className='h2-bold'> Trusted by <br/> Thousands of Agents</h2>
       <div className='flex w-full flex-col gap-5 md:flex-row'>
         <Search />
@@ -42,7 +42,7 @@ export default async function Home({searchParams}: SearchParamProps) {
         <Collection 
           data={listings?.data} emptyTitle='No Listings' emptyStateSubtext='Come back later' collectionType='All_Listings'limit={6} page={page} totalPages={listings?.totalPages}
         />
-     </section> */}
+     </section>
     </>
   )
 }
