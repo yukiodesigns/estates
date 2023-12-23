@@ -15,7 +15,7 @@ const Card = ({ listing, hasOrderLink, hidePrice }: CardProps) => {
   const { sessionClaims } = auth();
   const userId = sessionClaims?.userId as string;
 
-  const isListingCreator = userId === listing.agent._id.toString();
+  const isListingCreator = listing.agent && userId === listing.agent._id.toString();
 
   return (
     <div className="group relative flex min-h-[380px] w-full max-w-[400px] flex-col overflow-hidden rounded-xl bg-white shadow-md transition-all hover:shadow-lg md:min-h-[438px]">
@@ -46,7 +46,13 @@ const Card = ({ listing, hasOrderLink, hidePrice }: CardProps) => {
         </Link>
 
         <div className="flex-between w-full">
-          <p className="p-medium-14 md:p-medium-16 text-grey-600"> {listing.agent.firstName} {listing.agent.lastName}</p>
+          {listing.agent ? (
+            <p className="p-medium-14 md:p-medium-16 text-grey-600">
+              {listing.agent.firstName} {listing.agent.lastName}
+            </p>
+          ) : (
+            <p className="p-medium-14 md:p-medium-16 text-grey-600">Unknown Agent</p>
+          )}
 
           {hasOrderLink && (
             <Link href={`/orders?housesId=${listing._id}`} className="flex gap-2">
@@ -55,6 +61,7 @@ const Card = ({ listing, hasOrderLink, hidePrice }: CardProps) => {
             </Link>
           )}
         </div>
+
       </div>
     </div>
   )
