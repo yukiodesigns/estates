@@ -16,7 +16,7 @@ const Card = ({ listing, hasOrderLink, hidePrice }: CardProps) => {
   const userId = sessionClaims?.userId as string;
 
   const isListingCreator = listing.agent && userId === listing.agent._id.toString();
-
+  
   return (
     <div className="group relative flex min-h-[380px] w-full max-w-[400px] flex-col overflow-hidden rounded-xl bg-white shadow-md transition-all hover:shadow-lg md:min-h-[438px]">
       <Link  href={`/houses/${listing._id}`}  style={{backgroundImage: `url(${listing.imageUrl})`}} className="flex-center flex-grow bg-gray-50 bg-cover bg-center text-grey-500" />

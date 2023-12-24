@@ -12,6 +12,7 @@ export interface IHouses extends Document {
     isAvailable: boolean;
     category: { _id: string, name: string }
     agent: { _id: string, firstName: string, lastName: string }
+    
 }
 const HouseSchema = new Schema({
     type: { type: String, required: true },
