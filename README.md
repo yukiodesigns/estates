@@ -13,7 +13,7 @@ Welcome to Yukio Estates, your go-to platform for all your real estate needs! Th
 
 ## Contributors
 
-We would like to express our gratitude to the following contributors who have played a significant role in the development of RealEstateHub:
+We would like to express our gratitude to the following contributors who have played a significant role in the development of Yukio Estates:
 
 - [Elsie Oduor](https://github.com/yukiodesigns)
 - [Daniel Orwenjo](https://github.com/manlikeganga19)
@@ -48,7 +48,7 @@ Yukio Estates's MVP includes the following core features:
 - Secure transactions facilitated by Stripe
 - Search functionality by name or category
 
-We appreciate your interest in RealEstateHub and look forward to building a robust platform that revolutionizes the real estate experience. If you have any questions or suggestions, please feel free to reach out to us.
+We appreciate your interest in Yukio Estates and look forward to building a robust platform that revolutionizes the real estate experience. If you have any questions or suggestions, please feel free to reach out to us.
 
 ## To Run the project:
 Follow the following steps to run this project locally:
