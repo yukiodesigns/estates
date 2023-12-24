@@ -131,7 +131,7 @@ export async function getOrdersByUser({ userId, limit = 3, page }: GetOrdersByUs
         path: 'house',
         model: House,
         populate: {
-          path: 'organizer',
+          path: 'organiser',
           model: User,
           select: '_id firstName lastName',
         },
@@ -140,7 +140,8 @@ export async function getOrdersByUser({ userId, limit = 3, page }: GetOrdersByUs
     const ordersCount = await Order.distinct('house._id').countDocuments(conditions)
 
     return { data: JSON.parse(JSON.stringify(orders)), totalPages: Math.ceil(ordersCount / limit) }
-  } catch (error) {
-    handleError(error)
+  }  catch (error) {
+    console.error(error);
+    handleError(error);
   }
 }
