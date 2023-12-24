@@ -24,7 +24,7 @@ const HouseSchema = new Schema({
     isAvailable: { type: Boolean, default: false },
     category: { type: Schema.Types.ObjectId, ref: 'Category' },
     agent: { type: Schema.Types.ObjectId, ref: 'User' },
-    organiser: { type: Schema.Types.ObjectId, ref: 'User', },
+    organiser: { type: Schema.Types.ObjectId, ref: 'User' },
 })
 
 const House = models.House || model('House', HouseSchema);

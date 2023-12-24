@@ -12,13 +12,13 @@ const getCategoryByName = async (name: string) => {
 }
 
 const populateListing = async (query: any) => {
-  const populationFields = ['category', 'organizer'];
+  const populationFields = ['category', 'organiser'];
 
   const populatedQuery = populationFields.reduce((query, field) => {
     if (House.schema.paths[field]) {
       query = query.populate({
         path: field,
-        model: field === 'organizer' ? User : Category,
+        model: field === 'organiser' ? User : Category,
         select: '_id firstName lastName name',
       });
     }
@@ -37,7 +37,7 @@ export const createListing = async ({ house, userId, path }: CreateHouseParams) 
     const organaiser = await User.findById(userId)
     if (!organaiser) throw new Error('Organiser not found')
     
-    const newListing = await House.create({ ...house, type: 'String', category: house.categoryId, organiser: userId })
+    const newListing = await House.create({ ...house, type: 'String', category: house.categoryId, organizer: userId })
     revalidatePath(path)
     return JSON.parse(JSON.stringify(newListing))
   } catch (error) {
@@ -58,7 +58,7 @@ export const getListingById = async (houseId: string) => {
     return JSON.parse(JSON.stringify(listing));
   } catch (error) {
     console.error('Error in getListingById:', error);
-    handleError({ path: 'organizer', error });
+    handleError({ path: 'organiser', error });
   }
 };
 
