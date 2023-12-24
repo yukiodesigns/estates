@@ -32,7 +32,7 @@ const Checkout = ({ house, userId }: { house: IHouses, userId: string }) => {
   return (
     <form action={onCheckout} method="post">
         {house.isAvailable ?
-        <Button type="submit" role="link" size="lg" className="button sm:w-fit"> 'Buy House'</Button> 
+        <Button type="submit" role="link" size="lg" className="button sm:w-fit"> Buy House</Button> 
         : <p>Not Available</p>}
       
     </form>
