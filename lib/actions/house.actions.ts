@@ -19,7 +19,7 @@ const populateListing = async (query: any) => {
       query = query.populate({
         path: field,
         model: field === 'organizer' ? User : Category,
-        select: '_id firstName lastName',
+        select: '_id firstName lastName name',
       });
     }
     return query;
@@ -36,6 +36,7 @@ export const createListing = async ({ house, userId, path }: CreateHouseParams) 
 
     const organaiser = await User.findById(userId)
     if (!organaiser) throw new Error('Organiser not found')
+    
     const newListing = await House.create({ ...house, type: 'String', category: house.categoryId, organiser: userId })
     revalidatePath(path)
     return JSON.parse(JSON.stringify(newListing))

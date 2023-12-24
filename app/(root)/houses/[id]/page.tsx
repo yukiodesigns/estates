@@ -8,7 +8,8 @@ const ListingDetails = async ({ params: { id }, searchParams }: SearchParamProps
   const listing = await getListingById(id);
   const relatedListings = await getRelatedListingsByCategory({ categoryId: listing.category._id, houseId: listing._id, page: searchParams.page as string, })
   const organizerName = listing.organizer ? `${listing.organizer.firstName} ${listing.organizer.lastName}` : 'Unknown Organizer';
-
+  console.log(listing.category.name)
+  console.log(organizerName)
   return (
     <>
       <section className="flex justify-center bg-primary-50 bg-dotted-pattern bg-contain">
@@ -20,8 +21,9 @@ const ListingDetails = async ({ params: { id }, searchParams }: SearchParamProps
               <h2 className='h2-bold'>{listing.title}</h2>
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
                 <div className="flex gap-3">
-                  <p className="p-bold-20 rounded-full bg-green-500/10 px-5 py-2 text-green-700">{listing.isAvailable ? `${listing.price}` : ' Not Available'}</p>
+                  <p className="p-bold-20 rounded-full bg-green-500/10 px-5 py-2 text-green-700">{listing.isAvailable ? `$${listing.price}` : ' Not Available'}</p>
                   <p className="p-medium-16 rounded-full bg-grey-500/10 px-4 py-2.5 text-grey-500">{listing.category.name}</p>
+                  
                 </div>
                 <p className="p-medium-18 ml-2 mt-2 sm:mt-0"> by{' '}<span className="text-primary-500">{organizerName}</span></p>
               </div>
