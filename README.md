@@ -25,8 +25,7 @@ Feel free to contribute to our project by forking the repository and submitting 
 The real estate industry is often complicated and lacks a centralized platform where users can easily list, search, and transact properties. Existing solutions may be cumbersome or lack modern features that enhance user experience.
 
 ## Solution
-
-RealEstateHub aims to provide a user-friendly platform that simplifies the process of buying and selling properties. By leveraging modern technologies, we offer a secure, efficient, and visually appealing experience for both buyers and sellers.
+Yukio Estates aims to provide a user-friendly platform that simplifies the process of buying and selling properties. By leveraging modern technologies, we offer a secure, efficient, and visually appealing experience for both buyers and sellers.
 
 ## How It Works
 
@@ -42,7 +41,7 @@ RealEstateHub aims to provide a user-friendly platform that simplifies the proce
 
 ## MVP (Minimum Viable Product)
 
-RealEstateHub's MVP includes the following core features:
+Yukio Estates's MVP includes the following core features:
 
 - User authentication with Clerk
 - Ability to create, delete, and update property listings
@@ -50,5 +49,31 @@ RealEstateHub's MVP includes the following core features:
 - Search functionality by name or category
 
 We appreciate your interest in RealEstateHub and look forward to building a robust platform that revolutionizes the real estate experience. If you have any questions or suggestions, please feel free to reach out to us.
+
+## To Run the project:
+Follow the following steps to run this project locally:
+1. Git clone the project 
+2. Run `npm install`
+3. Set up a `.env.local` file that has the following data:
+    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+    CLERK_SECRET_KEY=
+
+    NEXT_PUBLIC_CLERK_SIGN_IN_URL=
+    NEXT_PUBLIC_CLERK_SIGN_UP_URL=
+    NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=
+    NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=
+
+    MONGODB_URI=
+
+    WEBHOOK_SECRET=
+
+    UPLOADTHING_SECRET=
+    UPLOADTHING_APP_ID=
+
+    NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=
+    STRIPE_SECRET_KEY=
+    STRIPE_WEBHOOK_SECRET=
+    NEXT_PUBLIC_SERVER_URL=
+4. Run `npm run dev`
 
 Happy house hunting! 🏡
